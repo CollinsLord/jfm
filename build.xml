@@ -1,5 +1,6 @@
 <project name="jfm" default="compile" basedir=".">
   <property name="src" location="src"/>
+  <property name="src.java" location="${src}/java"/>
   <property name="build" location="build"/>
 
   <target name="init">
@@ -8,7 +9,7 @@
   </target>
 
   <target name="compile" depends="init">
-    <javac srcdir="${src}" destdir="${build}"/>
+    <javac srcdir="${src.java}" destdir="${build}"/>
   </target>
 
   <target name="clean">
