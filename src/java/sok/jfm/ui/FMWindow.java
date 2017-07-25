@@ -9,11 +9,11 @@ import javax.swing.JLabel;
  * This class represents the main file manager window.
  */
 public class FMWindow extends JFrame {
-     JPanel one = new JPanel();
-     JPanel two = new JPanel();
-     JLabel label1 = new JLabel("File");
-     JLabel label2 = new JLabel("Content");
-     JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, 
+     private JPanel one = new JPanel();
+     private JPanel two = new JPanel();
+     private JLabel label1 = new JLabel("File");
+     private JLabel label2 = new JLabel("Content");
+     private JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, 
              true, one, two);
 
     /**
