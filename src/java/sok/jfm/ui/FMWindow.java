@@ -8,13 +8,14 @@ import javax.swing.JLabel;
 /**
  * This class represents the main file manager window.
  */
-public class FMWindow extends JFrame { 
+public class FMWindow extends JFrame {
+    private JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, 
+             true, one, two);
+    // Temporary variables. Remove once we have sidebar and content widgets.
     private JPanel one = new JPanel();
     private JPanel two = new JPanel();
     private JLabel label1 = new JLabel("File");
     private JLabel label2 = new JLabel("Content");
-    private JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, 
-             true, one, two);
 
     /**
      * Create a new <code>FMWindow</code>.
