@@ -19,7 +19,6 @@ public class FMWindow extends JFrame {
     /**
      * Create a new <code>FMWindow</code>.
      */
-   
     public FMWindow() {
         setTitle("Java File Manager");
 	setSize(400, 300);
