@@ -1,5 +1,7 @@
-import javax.swing.JList;
+package sok.jfm.ui;
 
-public class LocationBar extends JList {
 
+public class LocationBar extends JList  {
+
+ 
 }
