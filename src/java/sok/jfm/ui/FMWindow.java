@@ -84,8 +84,8 @@ public class FMWindow extends JFrame implements TreeSelectionListener{
      DefaultMutableTreeNode book = null;
      root = new DefaultMutableTreeNode("User", true);
      getList(root, new File("/home/collins/"));
-    tree = new JTree(root);
-    top.add(root);
+     tree = new JTree(root);
+     top.add(root);
  
     }
 
