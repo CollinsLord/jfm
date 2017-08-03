@@ -35,16 +35,17 @@ public class FMWindow extends JFrame implements TreeSelectionListener{
      */
     public FMWindow() {
         setTitle("Java File Manager");
-	    setSize(400, 300);
+	setSize(400, 300);
          
         DefaultMutableTreeNode top =new DefaultMutableTreeNode("Home");
         FileReader(top);
          //Create a tree that allows one selection at a time.
         tree = new JTree(top);
-        tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-    if (playWithLineStyle) {
-        System.out.println("line style = " + lineStyle);
-        tree.putClientProperty("JTree.lineStyle", lineStyle);
+        tree.getSelectionModel().setSelectionMode(
+                TreeSelectionModel.SINGLE_TREE_SELECTION);
+        if (playWithLineStyle) {
+            System.out.println("line style = " + lineStyle);
+            tree.putClientProperty("JTree.lineStyle", lineStyle);
         }
         //Create the scroll pane and add the tree to it. 
         JScrollPane treeView = new JScrollPane(tree);
@@ -52,17 +53,17 @@ public class FMWindow extends JFrame implements TreeSelectionListener{
         DisplayPane.setEditable(true);
         JScrollPane contentView = new JScrollPane(treeView);
 
-         splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
-         splitPane.setTopComponent(treeView);
-         splitPane.setBottomComponent(contentView);
-         add(splitPane);
-         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+        splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+        splitPane.setTopComponent(treeView);
+        splitPane.setBottomComponent(contentView);
+        add(splitPane);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
     }
 
     /** Required by TreeSelectionListener interface. */
      public void valueChanged(TreeSelectionEvent e) {
-        DefaultMutableTreeNode node = (DefaultMutableTreeNode)
-                           tree.getLastSelectedPathComponent();
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode)               
+            tree.getLastSelectedPathComponent();
  
         if (node == null) return;
  
@@ -78,31 +79,30 @@ public class FMWindow extends JFrame implements TreeSelectionListener{
             System.out.println(nodeInfo.toString());
         }
     }
+    
     //The method to read directory 
      public void FileReader(DefaultMutableTreeNode top) {
-     DefaultMutableTreeNode category = null;
-     DefaultMutableTreeNode book = null;
-     root = new DefaultMutableTreeNode("User", true);
-     getList(root, new File("/home/collins/"));
-     tree = new JTree(root);
-     top.add(root);
- 
+        DefaultMutableTreeNode category = null;
+        DefaultMutableTreeNode book = null;
+        root = new DefaultMutableTreeNode("User", true);
+        getList(root, new File("/home/collins/"));
+        tree = new JTree(root);
+        top.add(root);
     }
 
      public void getList(DefaultMutableTreeNode node, File f) {
-     if(!f.isDirectory()) {
-         if (f.getName().endsWith("java")) {
+        if(!f.isDirectory()) {
+            if (f.getName().endsWith("java")) {
+                DefaultMutableTreeNode child = new DefaultMutableTreeNode(f);
+                node.add(child);
+            }
+         } else {
             DefaultMutableTreeNode child = new DefaultMutableTreeNode(f);
             node.add(child);
-            }
-         }
-     else {
-         DefaultMutableTreeNode child = new DefaultMutableTreeNode(f);
-         node.add(child);
-         File fList[] = f.listFiles();
-         for(int i = 0; i  < fList.length; i++)
-             getList(child, fList[i]);
+            File fList[] = f.listFiles();
+            for(int i = 0; i  < fList.length; i++)
+                getList(child, fList[i]);
+            
          }
     }
-    
 }
