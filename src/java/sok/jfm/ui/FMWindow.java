@@ -35,6 +35,7 @@ public class FMWindow extends JFrame implements TreeSelectionListener{
      */
     public FMWindow() {
         setTitle("Java File Manager");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 	setSize(400, 300);
          
         DefaultMutableTreeNode top =new DefaultMutableTreeNode("Home");
@@ -57,7 +58,6 @@ public class FMWindow extends JFrame implements TreeSelectionListener{
         splitPane.setTopComponent(treeView);
         splitPane.setBottomComponent(contentView);
         add(splitPane);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
     }
 
     /** Required by TreeSelectionListener interface. */
