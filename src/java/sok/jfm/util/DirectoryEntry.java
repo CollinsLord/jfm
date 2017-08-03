@@ -15,7 +15,7 @@ public class DirectoryEntry {
      * @param fileName the file name
      */
     public DirectoryEntry(String fileName) {
-        setFilename(fileName);
+        setFileName(fileName);
     }
 
     /**
